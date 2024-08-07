@@ -21,6 +21,8 @@ RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 
+# Add Ping command 
+RUN apt-get update && apt-get install -y iputils-ping
 
 # OpenJDK 21 LTS
 RUN apt update \
