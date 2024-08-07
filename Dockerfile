@@ -17,9 +17,10 @@ RUN apt-get update && \
     apt-get -y install sudo
     
 # Ensure UTF-8
+RUN echo "LC_ALL=en_US.UTF-8" >> /etc/environment
+RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
+RUN echo "LANG=en_US.UTF-8" > /etc/locale.conf
 RUN locale-gen en_US.UTF-8
-ENV LANG en_US.UTF-8
-ENV LC_ALL en_US.UTF-8
 
 # Add Ping command 
 RUN apt-get update && apt-get install -y iputils-ping
