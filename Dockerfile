@@ -10,7 +10,8 @@ RUN apt update \
     && adduser container \
     && apt-get update \ 
     && apt -y install cmake \
-    && apt -y install wget
+    && apt -y install wget \
+    && apt -y install unzip 
 
 # Grant sudo permissions to container user for commands
 RUN apt-get update && \
