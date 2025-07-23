@@ -11,7 +11,7 @@ RUN apt update \
     && apt-get update \ 
     && apt -y install cmake \
     && apt -y install wget \
-    && apt -y install unzip 
+    && apt -y install unzip
 
 # Grant sudo permissions to container user for commands
 RUN apt-get update && \
@@ -81,10 +81,12 @@ RUN wget https://packages.microsoft.com/config/debian/11/packages-microsoft-prod
    && apt-get install -y aspnetcore-runtime-6.0 dotnet-sdk-6.0 
 
 # PAM limits
-RUN echo '* soft nofile 65535' >> /etc/security/limits.conf \
-    && echo '* hard nofile 65535' >> /etc/security/limits.conf \
-    && echo '* soft nproc 65535'  >> /etc/security/limits.conf \
-    && echo '* hard nproc 65535'  >> /etc/security/limits.conf
+RUN apt-get update && apt-get install -y libpam0g-dev && \
+    echo "session required pam_limits.so" >> /etc/pam.d/common-session && \
+    echo "* soft nofile 1048576" >> /etc/security/limits.conf && \
+    echo "* hard nofile 1048576" >> /etc/security/limits.conf && \
+    echo "* soft nproc 65535" >> /etc/security/limits.conf && \
+    echo "* hard nproc 65535" >> /etc/security/limits.conf
 
 # Install the speedtest by ookla
 RUN curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash \
