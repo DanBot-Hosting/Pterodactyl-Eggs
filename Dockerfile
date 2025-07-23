@@ -55,6 +55,11 @@ RUN apt update \
    && cd .. \
    && rm -rf Python-3.12.1 \
    && rm Python-3.12.*.tgz 
+
+# Set Python 3.12 as default
+RUN update-alternatives --install /usr/bin/python3 python3 /usr/local/bin/python3.12 1 \
+    && update-alternatives --set python3 /usr/local/bin/python3.12 \
+    && curl -sS https://bootstrap.pypa.io/get-pip.py | python3
    
 # Upgrade Pip
 RUN apt -y install python3 python3-pip \
@@ -74,6 +79,12 @@ RUN wget https://packages.microsoft.com/config/debian/11/packages-microsoft-prod
    && apt-get install -y apt-transport-https \
    && apt-get update \
    && apt-get install -y aspnetcore-runtime-6.0 dotnet-sdk-6.0 
+
+# PAM limits
+RUN echo '* soft nofile 65535' >> /etc/security/limits.conf \
+    && echo '* hard nofile 65535' >> /etc/security/limits.conf \
+    && echo '* soft nproc 65535'  >> /etc/security/limits.conf \
+    && echo '* hard nproc 65535'  >> /etc/security/limits.conf
 
 # Install the speedtest by ookla
 RUN curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash \
