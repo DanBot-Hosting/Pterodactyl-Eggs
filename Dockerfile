@@ -41,7 +41,7 @@ RUN curl -sL https://deb.nodesource.com/setup_lts.x | bash - \
     && apt-get -y install nodejs imagemagick ffmpeg make build-essential 
 
 # Install NVM
-run curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
     
 # Python 2 & 3
 RUN apt update \
@@ -92,6 +92,9 @@ RUN apt-get update && apt-get install -y libpam0g-dev && \
 RUN curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash \
     && apt-get install speedtest -y
 # For calling speedtest, enter command "speedtest --accept-license YES"
+
+# Install Nix
+RUN curl -L https://nixos.org/nix/install | bash -s -- --daemon
 
 # Install the system dependencies required for puppeteer support
 RUN apt-get install -y \
