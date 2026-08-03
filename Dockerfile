@@ -1,6 +1,6 @@
 FROM debian:bullseye-slim
 
-MAINTAINER danielpmc, <dan@danbot.host>
+LABEL maintainer="danielpmc, <dan@danbot.host>"
 
 RUN apt update \
     && apt upgrade -y \
@@ -41,7 +41,7 @@ RUN curl -sL https://deb.nodesource.com/setup_lts.x | bash - \
     && apt-get -y install nodejs imagemagick ffmpeg make build-essential 
 
 # Install NVM
-run curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
     
 # Python 2 & 3
 RUN apt update \
@@ -75,10 +75,7 @@ RUN wget https://packages.microsoft.com/config/debian/11/packages-microsoft-prod
    && apt-get update \
    && apt-get install -y aspnetcore-runtime-6.0 dotnet-sdk-6.0 
 
-# Install the speedtest by ookla
-RUN curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash \
-    && apt-get install speedtest -y
-# For calling speedtest, enter command "speedtest --accept-license YES"
+# Speedtest CLI installation removed - package no longer available
 
 # Install the system dependencies required for puppeteer support
 RUN apt-get install -y \
@@ -120,8 +117,8 @@ RUN npm i -g yarn pm2 pnpm
 
 
 USER container
-ENV  USER container
-ENV  HOME /home/container
+ENV USER=container
+ENV HOME=/home/container
 
 WORKDIR /home/container
 
