@@ -13,4 +13,8 @@ If you encounter a vulnerability or have concern, you can contact us via our ema
 * Dan: `dan@danbot.host`
 * DIBSTER `dibster@danbot.host`
 
-Last Updated: August 8th 2026
+---
+
+> [!NOTE]
+> Last Updated: August 8th, 2026
+
