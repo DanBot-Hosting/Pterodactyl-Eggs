@@ -1,0 +1,6 @@
+# Jetbrain IDE
+.idea
+
+# CODEBASE CONTEXT - USED FOR DEBUGGING
+panel/
+wings/
