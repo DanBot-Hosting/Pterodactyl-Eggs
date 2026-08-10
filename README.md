@@ -1,10 +1,7 @@
 # Pterodactyl Eggs and Docker Images
 
 This repository stores all of the custom Pterodactyl eggs and Docker images we use for
-[danbot.host](https://danbot.host). You are welcome to run any of these on your own Pterodactyl
-panel — free of charge, commercial use included — provided you follow the
-[LICENSE](./LICENSE). In short: **if you modify anything here and serve it to users, your changes
-have to be public too, and DanBot Hosting has to stay credited.** See [License](#license).
+[danbot.host](https://danbot.host). See [License](#license).
 
 ## Eggs
 
@@ -31,15 +28,6 @@ issue.
 
 [GNU Affero General Public License v3.0 or later](./LICENSE), with an attribution requirement added
 under section 7(b).
-
-- **Use it freely** — including commercially, at no cost and without asking.
-- **Publish your changes** — if you modify anything here and let people interact with it over a
-  network, which running a panel or a game server for customers is, you must offer those users the
-  source of your modified version under this same licence. Plain GPL would let a private fork
-  slide; AGPL does not.
-- **Keep the credit** — leave copyright notices and `SPDX-License-Identifier` headers intact, ship
-  the `LICENSE` file with any copy, and state in your source that it is based on this repository.
-- **No trademark grant** — don't imply DanBot Hosting endorses or is affiliated with your fork.
 
 > [!NOTE]
 > Revisions published before the relicence were released under the MIT License. That grant is
