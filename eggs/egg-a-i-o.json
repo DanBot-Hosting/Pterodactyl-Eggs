@@ -4,11 +4,11 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2024-04-21T14:59:52+08:00",
+    "exported_at": "2026-08-09T22:25:41-04:00",
     "name": "AIO",
-    "author": "dan@danbot.host",
-    "description": "NodeJS LTS, Java (OpenJDK) 21, Python 3.11+, Golang, .NET Core, NodeJS Puppeteer\/pm2\/yarn. Made by DanBot Hosting.",
-    "features": null,
+    "author": "dibster@danbot.host",
+    "description": "DanBot Hosting All In One (AIO) Egg. Repository: https://github.com/DanBot-Hosting/Pterodactyl-Eggs",
+    "features": [],
     "docker_images": {
         "danbothosting\/aio": "danbothosting\/aio"
     },
@@ -16,7 +16,7 @@
     "startup": "{{STARTUP_CMD}}",
     "config": {
         "files": "{}",
-        "startup": "{\r\n    \"done\": \"\",\r\n    \"userInteraction\": []\r\n}",
+        "startup": "{\r\n    \"done\": \"======================================== SERVER MARKED AS RUNNING ========================================\"\r\n}",
         "logs": "{}",
         "stop": "^C"
     },
