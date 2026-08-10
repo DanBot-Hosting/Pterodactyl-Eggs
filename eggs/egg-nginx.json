@@ -22,7 +22,7 @@
     },
     "scripts": {
         "installation": {
-            "script": "#!\/bin\/ash\r\n\r\ncd \/mnt\/server\r\n\r\napk --update add git\r\n\r\ngit clone https:\/\/github.com\/DanBot-Hosting\/pterodactyl-eggs -b nginx .\/temp\r\n\r\ncp -r .\/temp\/nginx \/mnt\/server\/\r\ncp -r .\/temp\/php-fpm \/mnt\/server\/\r\ncp -r .\/temp\/webroot \/mnt\/server\/\r\ncp .\/temp\/start.sh \/mnt\/server\/\r\ncp -r .\/temp\/logs \/mnt\/server\/\r\n\r\nchmod +x \/mnt\/server\/start.sh\r\n\r\nrm -rf .\/temp",
+            "script": "#!\/bin\/ash\r\n\r\ncd \/mnt\/server\r\n\r\napk --update add git\r\n\r\ngit clone --depth 1 https:\/\/github.com\/DanBot-Hosting\/pterodactyl-eggs -b main .\/temp\r\n\r\ncp -r .\/temp\/docker-images\/nginx\/nginx \/mnt\/server\/\r\ncp -r .\/temp\/docker-images\/nginx\/php-fpm \/mnt\/server\/\r\ncp -r .\/temp\/docker-images\/nginx\/webroot \/mnt\/server\/\r\ncp .\/temp\/docker-images\/nginx\/start.sh \/mnt\/server\/\r\ncp -r .\/temp\/docker-images\/nginx\/logs \/mnt\/server\/\r\n\r\nchmod +x \/mnt\/server\/start.sh\r\n\r\nrm -rf .\/temp",
             "container": "alpine:latest",
             "entrypoint": "ash"
         }

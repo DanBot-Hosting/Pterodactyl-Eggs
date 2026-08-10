@@ -1,0 +1,47 @@
+name: Build and Push Nginx Image
+
+# ---------------------------------------------------------------------------
+# DISABLED: automatic builds of danbothosting/nginx are paused.
+#
+# TO RE-ENABLE: uncomment the `push:` block below. Nothing else needs changing.
+#
+# While disabled this workflow only runs when triggered by hand from the
+# Actions tab (Run workflow). Note that a manual run still pushes
+# danbothosting/nginx:latest to Docker Hub.
+# ---------------------------------------------------------------------------
+
+on:
+  # push:
+  #   branches:
+  #     - main
+  #   paths:
+  #     - 'docker-images/nginx/**'
+  #     - '.github/workflows/docker-build-nginx.yml'
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Building Nginx Docker Image
+    runs-on: X64
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v7
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v4
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_TOKEN }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v7
+        with:
+          context: ./docker-images/nginx
+          file: ./docker-images/nginx/Dockerfile
+          push: true
+          tags: |
+            danbothosting/nginx:latest
