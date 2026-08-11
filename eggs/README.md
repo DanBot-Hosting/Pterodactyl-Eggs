@@ -7,7 +7,6 @@ panel under **Nests → Import Egg**.
 | --- | --- |
 | [`egg-a-i-o.json`](./egg-a-i-o.json) | `danbothosting/aio` |
 | [`egg-nginx.json`](./egg-nginx.json) | `danbothosting/nginx` |
-| [`egg-open-x.json`](./egg-open-x.json) | `quay.io/parkervcp/pterodactyl-images:debian_nodejs-16` |
 | [`egg-share-x-upload-server.json`](./egg-share-x-upload-server.json) | `quay.io/parkervcp/pterodactyl-images:debian_nodejs-16` |
 
 The images live in [`docker-images/`](../docker-images).
