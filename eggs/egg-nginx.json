@@ -6,7 +6,7 @@
     },
     "exported_at": "2024-04-21T03:14:54-04:00",
     "name": "Nginx",
-    "author": "unknown@unknown.com",
+    "author": "dibster@danbot.host",
     "description": "Nginx",
     "features": null,
     "docker_images": {
