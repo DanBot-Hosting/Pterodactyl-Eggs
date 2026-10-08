@@ -62,6 +62,19 @@ RUN curl -OL https://golang.org/dl/go1.21.5.linux-amd64.tar.gz \
 ENV PATH=$PATH:/usr/local/go/bin
 ENV GOROOT=/usr/local/go
 
+# Rust - installed system-wide because /home/container is replaced by the server volume at runtime.
+# The toolchain is read-only at runtime; CARGO_HOME points into the volume so the crate registry
+# and `cargo install` binaries stay under /home/container.
+ENV RUST_VERSION=1.99.0
+ENV RUSTUP_HOME=/usr/local/rustup
+RUN apt-get update \
+   && apt-get -y install pkg-config \
+   && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs \
+      | CARGO_HOME=/usr/local/cargo sh -s -- -y --no-modify-path --profile minimal --default-toolchain ${RUST_VERSION} \
+   && chmod -R a+rX /usr/local/rustup /usr/local/cargo
+ENV CARGO_HOME=/home/container/.cargo
+ENV PATH=$PATH:/usr/local/cargo/bin:/home/container/.cargo/bin
+
 # Installing NodeJS dependencies for AIO.
 RUN npm i -g yarn pm2 pnpm
 

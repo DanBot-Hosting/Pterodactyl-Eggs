@@ -19,6 +19,9 @@ A general purpose runtime image bundling the toolchains most of our users ask fo
 - Node.js LTS, plus `yarn`, `pnpm` and `pm2`
 - Python 3.12 (built from source) and the distro `python3` / `pip3`
 - Go 1.21.5
+- Rust 1.99.0 (`rustc` and `cargo`, minimal rustup profile). The toolchain is read-only at
+  runtime; `CARGO_HOME` is `/home/container/.cargo`, so the crate registry and anything
+  `cargo install`ed live on the server's volume
 - Build tooling: `make`, `build-essential`, `cmake`, `git`, `imagemagick`, `ffmpeg`
 
 Despite the name, it does **not** include Nginx. Use `danbothosting/nginx` for that.
