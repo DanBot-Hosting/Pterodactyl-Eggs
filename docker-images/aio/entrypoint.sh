@@ -31,6 +31,8 @@ echo "Java:     $(java -version 2>&1 | head -n 1)"
 echo "Python:   $(python3 --version 2>/dev/null)"
 echo "Pip:      $(pip3 --version 2>/dev/null)"
 echo "Go:       $(go version 2>/dev/null)"
+echo "Rust:     $(rustc --version 2>/dev/null)"
+echo "Cargo:    $(cargo --version 2>/dev/null)"
 echo "======================================== SERVER MARKED AS RUNNING ========================================"
 
 
