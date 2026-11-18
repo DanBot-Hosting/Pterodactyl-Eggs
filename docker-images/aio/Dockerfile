@@ -23,14 +23,11 @@ RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
 RUN echo "LANG=en_US.UTF-8" > /etc/locale.conf
 RUN locale-gen en_US.UTF-8
 
-# OpenJDK 21 LTS
+# OpenJDK 21 LTS (Debian package; Oracle /java/21/latest/ URLs return 404 as of Oct 2026)
 RUN apt update \
-   && apt install -y libc6-i386 libc6-x32 \
-   && wget https://download.oracle.com/java/21/latest/jdk-21_linux-x64_bin.deb -O jdk-21_linux-x64_bin.deb \
-   && apt install -y ./jdk-21_linux-x64_bin.deb \
-   && rm jdk-21_linux-x64_bin.deb
-   
-ENV JAVA_HOME=/usr/lib/jvm/jdk-21/
+   && apt install -y libc6-i386 libc6-x32 openjdk-21-jdk
+
+ENV JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64/
 ENV PATH=$PATH:$JAVA_HOME/bin
 
 # NodeJS - Builds latest LTS at the time of building.
